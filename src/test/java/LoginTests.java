@@ -1,5 +1,4 @@
 import DTO.LoginDTO;
-import DTO.NewUserDto;
 import DTO.StandardResponseDto;
 import com.google.gson.Gson;
 import okhttp3.*;
@@ -14,7 +13,7 @@ public class LoginTests {
     OkHttpClient client = new OkHttpClient();
     @Test
     public void LoginTestSuccess() throws IOException {
-        LoginDTO login = LoginDTO.builder().email("tja@aa.aa").password("sa123456").build();
+        LoginDTO login = LoginDTO.builder().username("tja@aa1.aa").password("sa123456").build();
         RequestBody body = RequestBody.create(this.gson.toJson(login), this.JSON);
         Request request = (new Request.Builder()).url("http://localhost:8080/login").post(body).build();
         Response response = this.client.newCall(request).execute();
@@ -27,7 +26,7 @@ public class LoginTests {
     }
     @Test
     public void LoginTestNegativePassword() throws IOException {
-        LoginDTO login = LoginDTO.builder().email("tja@aa.aa").password("sa12345622").build();
+        LoginDTO login = LoginDTO.builder().username("tja@aa.aa").password("sa12345622").build();
         RequestBody body = RequestBody.create(this.gson.toJson(login), this.JSON);
         Request request = (new Request.Builder()).url("http://localhost:8080/login").post(body).build();
         Response response = this.client.newCall(request).execute();

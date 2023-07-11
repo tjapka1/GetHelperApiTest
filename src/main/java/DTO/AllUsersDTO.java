@@ -3,7 +3,9 @@ package DTO;
 import java.util.List;
 
 public class AllUsersDTO {
-    private List<UserDto> users;
+
+}
+ /*   private List<UserDto> users;
 
     AllUsersDTO(List<UserDto> users) {
         this.users = users;
@@ -45,4 +47,4 @@ public class AllUsersDTO {
         }
     }
 
-}
+}*/

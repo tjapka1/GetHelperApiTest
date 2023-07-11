@@ -1,5 +1,6 @@
 package DTO;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,9 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class TasksPage {
-    private List<TaskDto> tasks;
+public class CategoriesPage {
+
+    private List<CategoryDto> categories;
 }

@@ -14,7 +14,7 @@ public class RegistrationTests {
 
     @Test
     public void registrationsTestSuccess() throws IOException {
-        NewUserDto newUser = NewUserDto.builder().email("tja@aa.aa").password("sa123456").build();
+        NewUserDto newUser = NewUserDto.builder().username("tja@aa1.aa").password("sa123456").build();
         RequestBody body = RequestBody.create(this.gson.toJson(newUser), this.JSON);
         Request request = (new Request.Builder()).url("http://localhost:8080/api/register").post(body).build();
         Response response = this.client.newCall(request).execute();
@@ -22,12 +22,12 @@ public class RegistrationTests {
         Assert.assertTrue(response.isSuccessful());
         Assert.assertEquals(response.code(), 201);
         NewUserDto responseDTO = this.gson.fromJson(response.body().string(), NewUserDto.class);
-        System.out.println(responseDTO.getEmail());
+        System.out.println(responseDTO.getUsername());
             }
 
     @Test
     public void registrationsTestWrongEmail() throws IOException {
-        NewUserDto newUser = NewUserDto.builder().email("").password("sa123456").build();
+        NewUserDto newUser = NewUserDto.builder().username("").password("sa123456").build();
         RequestBody body = RequestBody.create(this.gson.toJson(newUser), this.JSON);
         Request request = (new Request.Builder()).url("http://localhost:8080/api/register").post(body).build();
         Response response = this.client.newCall(request).execute();
@@ -35,11 +35,11 @@ public class RegistrationTests {
         Assert.assertTrue(response.isSuccessful());
         Assert.assertEquals(response.code(), 201);
         NewUserDto responseDTO = this.gson.fromJson(response.body().string(), NewUserDto.class);
-        System.out.println(responseDTO.getEmail());
+        System.out.println(responseDTO.getUsername());
             }
     @Test
     public void registrationsTestWrongPassword() throws IOException {
-        NewUserDto newUser = NewUserDto.builder().email("tja@kaa.aa").password("").build();
+        NewUserDto newUser = NewUserDto.builder().username("tja@kaa.aa").password("").build();
         RequestBody body = RequestBody.create(this.gson.toJson(newUser), this.JSON);
         Request request = (new Request.Builder()).url("http://localhost:8080/api/register").post(body).build();
         Response response = this.client.newCall(request).execute();
@@ -47,7 +47,7 @@ public class RegistrationTests {
         Assert.assertTrue(response.isSuccessful());
         Assert.assertEquals(response.code(), 201);
         NewUserDto responseDTO = this.gson.fromJson(response.body().string(), NewUserDto.class);
-        System.out.println(responseDTO.getEmail());
+        System.out.println(responseDTO.getUsername());
     }
 
 }

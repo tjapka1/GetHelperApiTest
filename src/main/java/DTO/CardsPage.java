@@ -5,12 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Builder
-public class NewUserDto {
-    private String username;
-    private String password;
+public class CardsPage {
+    private List<CardDto> cards;
 }

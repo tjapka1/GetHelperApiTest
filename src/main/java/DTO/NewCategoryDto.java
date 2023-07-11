@@ -1,15 +1,15 @@
 package DTO;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@Builder
 @Data
-public class TaskDto {
-    private Long id;
-    private String name;
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class NewCategoryDto {
+    private String title;
     private String description;
 }
